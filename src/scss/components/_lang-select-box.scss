@@ -1,0 +1,24 @@
+.lang-box {
+    position: relative;
+    width: 150px;
+    height: 35px;
+    border: 1px solid;
+
+    &__wrapper {
+        width: 100%;
+        height: 100%;
+        padding: 0 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        background-color: white;
+    }
+
+    &__option {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: rgb(152, 151, 149) !important;
+    }
+}

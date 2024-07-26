@@ -6,8 +6,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement, incrementByAmount } from '../redux/slices/counterSlice';
+import { useSelector, useDispatch } from "react-redux";
+import {
+  increment,
+  decrement,
+  incrementByAmount,
+} from "../redux/slices/counterSlice";
 
 const Home = () => {
   const suggestions = [
@@ -45,16 +49,18 @@ const Home = () => {
     },
   ];
 
-  const count = useSelector(state => state.counter.value);
+  const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
 
   return (
     <div className="container">
-      <div className="d-flex mb-5">
+      {/* <div className="d-flex mb-5">
         {suggestions.map((suggestion) => (
           <Card key={suggestion.id} suggestion={suggestion} />
         ))}
       </div>
+
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
 
       <Swiper
         className="pb-5"
@@ -77,7 +83,7 @@ const Home = () => {
         <span>{count}</span>
         <button onClick={() => dispatch(increment())}>+</button>
         <button onClick={() => dispatch(incrementByAmount(5))}>+5</button>
-      </div>
+      </div> */}
     </div>
   );
 };
