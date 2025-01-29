@@ -1,4 +1,3 @@
-import { Select } from "@chakra-ui/react";
 import { useState } from "react";
 
 const Tags = () => {
@@ -30,25 +29,7 @@ const Tags = () => {
 
   return (
     <>
-      <form onClick={formSubmit}>
-        <Select
-          placeholder="Select option"
-          value={selectedOption}
-          onChange={(e) => setSelectedOption(e.target.value)}
-        >
-          {options.map((option, i) => (
-            <option key={i} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </Select>
-
-        <button className="mt-5 btn btn-primary" type="submit">
-          sumbit
-        </button>
-
-        <button className="btn btn-danger" onClick={formRest}>reset</button>
-      </form>
+      
     </>
   );
 };
