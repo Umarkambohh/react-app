@@ -15,6 +15,18 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents, theme }) {
+      addComponents({
+        '.container-fluid': {
+          width: '100%',
+          paddingRight: theme('spacing.5'), // Adjust spacing as needed
+          paddingLeft: theme('spacing.5'), // Adjust spacing as needed
+          marginRight: 'auto',
+          marginLeft: 'auto',
+        },
+      });
+    },
+  ],
 }
 
