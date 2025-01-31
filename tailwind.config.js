@@ -13,6 +13,9 @@ module.exports = {
         xl: "4rem",
       },
     },
+    colors: {
+      "emerald": "#4CD964",
+    },
     extend: {},
   },
   plugins: [
