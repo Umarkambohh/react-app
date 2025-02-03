@@ -5,8 +5,8 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import SearchIcon from '@mui/icons-material/Search';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import CategoriesSelectbox from "./CategoriesSelectbox";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,22 +21,21 @@ const Header = () => {
     setAnchorEl(null);
   };
 
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      setIsScrolled(true);
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 0) {
+      setIsScrolled(true)
     } else {
-      setIsScrolled(false);
+      setIsScrolled(false)
     }
-  };
+  })
   return (
     <>
-      <header className="py-5">
+      <header className={`${isScrolled ? 'bg-white shadow-sm' : ''} py-5`}>
         <div className="container-fluid flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img width={140} src={logo} alt="Logo" />
-            <div>
-              <h1 sx={{ color: 'primary.main' }}>select</h1>
-            </div>
+            
+          <CategoriesSelectbox />
           </div>
 
           <div className="flex items-center">
@@ -48,9 +47,6 @@ const Header = () => {
             </ul>
 
             <div className="flex items-center gap-4">
-              <IconButton variant="outlined" aria-label="delete">
-                <SearchIcon />
-              </IconButton>
               <Button sx={{ textTransform: 'capitalize' }} variant="contained">Join</Button>
               <Button sx={{ textTransform: 'capitalize' }} variant="contained">Become Seller</Button>
             </div>
