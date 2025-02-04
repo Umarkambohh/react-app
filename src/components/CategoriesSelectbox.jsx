@@ -1,37 +1,45 @@
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import SearchIcon from '@mui/icons-material/Search';
+import AccessAlarmsIcon from '@mui/icons-material/AccessAlarms';
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 
 const CategoriesSelectbox = () => {
   const categories = [
     {
       title: "Groceroy",
-      img: SearchIcon,
-      link: "/"
+      link: "/",
+      component: <AssignmentTurnedInIcon />
     },
     {
       title: "Bakery",
-      img: SearchIcon,
-      link: "/"
+      link: "/",
+      component: <AccessAlarmsIcon />
     },
     {
-      title: "Makeup",
-      img: SearchIcon,
-      link: "/"
+      title: "Fashion",
+      link: "/",
+      component: <AccessibilityNewIcon />
     },
-    {
-      title: "Bags",
-      img: SearchIcon,
-      link: "/"
-    },
-  ]
+  ];
 
+  const handleSelect = (c) => {
+    console.log(c);
+  }
   return (
     <>
       <div className="flex gap-2 cursor-pointer">
         <SearchIcon /> <div className="capitalize">Groceroy </div> <ArrowDropDownIcon />
       </div>
 
-      <div></div>
+      <div>
+        {categories.map((c, index) => (
+          <div className='cursor-pointer' key={index} onClick={handleSelect(c)}>
+            <span>{c.component}</span>
+            <span>{c.title}</span>
+          </div>
+        ))}
+      </div>
     </>
   )
 }
