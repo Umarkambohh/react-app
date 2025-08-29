@@ -1,65 +1,49 @@
-import React, { useState } from "react";
-import logo from "../images/Logo.webp";
 import { Link } from "react-router-dom";
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import CategoriesSelectbox from "./CategoriesSelectbox";
 
-const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 0) {
-      setIsScrolled(true)
-    } else {
-      setIsScrolled(false)
-    }
-  })
+export default function Header() {
   return (
-    <>
-      <header className={`${isScrolled ? 'bg-white shadow-sm' : ''} py-5`}>
-        <div className="container-fluid flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img width={140} src={logo} alt="Logo" />
-            
-          <CategoriesSelectbox />
-          </div>
+    <header className="bg-blue-500 text-white">
+      <div className="container mx-auto flex items-center justify-between py-4">
+        
+        {/* Left Nav Links */}
+        <nav className="flex space-x-6">
+          <Link
+            to="/"
+            className="hover:text-gray-300 font-medium border-b-2 border-white"
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className="hover:text-gray-300 font-medium"
+          >
+            About Us
+          </Link>
+          <Link
+            to="/contact"
+            className="hover:text-gray-300 font-medium"
+          >
+            Contact Us
+          </Link>
+        </nav>
 
-          <div className="flex items-center">
-            <ul className="flex gap-8 me-6">
-              <li className="hover:text-emerald transition cursor-pointer"><Link to="/">Shops</Link></li>
-              <li className="hover:text-emerald transition cursor-pointer"><Link to="/">Offers</Link></li>
-              <li className="hover:text-emerald transition cursor-pointer"><Link to="/">Contact</Link></li>
-              <li className="hover:text-emerald transition cursor-pointer" onClick={handleClick}>Pages <KeyboardArrowDownIcon /></li>
-            </ul>
-
-            <div className="flex items-center gap-4">
-              <Button sx={{ textTransform: 'capitalize' }} variant="contained">Join</Button>
-              <Button sx={{ textTransform: 'capitalize' }} variant="contained">Become Seller</Button>
-            </div>
-          </div>
+        {/* Logo (Center) */}
+        <div className="text-2xl font-bold tracking-widest font-handwriting">
+          LOVE BIRYANI
         </div>
-        <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <MenuItem onClick={handleClose}>My account</MenuItem>
-          <MenuItem onClick={handleClose}>Logout</MenuItem>
-        </Menu>
-      </header>
-    </>
-  );
-};
 
-export default Header;
+        {/* Search Bar (Right) */}
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search"
+            className="px-4 py-1 rounded-full text-black focus:outline-none"
+          />
+          <span className="absolute right-3 top-1.5 text-gray-500 cursor-pointer">
+            🔍
+          </span>
+        </div>
+      </div>
+    </header>
+  );
+}
